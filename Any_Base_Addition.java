@@ -16,6 +16,7 @@ public class Any_Base_Addition
 	public static int anyBaseAddition(int num1, int num2, int base){
 	    int c = 0;
 	    int ans = 0;
+	    int p = 1;
 	    while(num1 > 0 || num2 > 0){
     	    int ld1 = num1 % 10;
     	    num1 = num1/10;
@@ -30,24 +31,13 @@ public class Any_Base_Addition
 	            ald = sum;
 	            c = 0;
 	        }
-	        ans = ans * 10 + ald;       
+	        ans = ald * p + ans;
+	        p = p * 10;
 	    }    
 	    
 	    if(c != 0){
-	        ans = ans * 10 + c;
+	        ans = c * p + ans;
 	    }
-	    return reverseNumber(ans);
-	}
-	
-	public static int reverseNumber(int num){
-	    int ans = 0;
-	    
-	    while(num > 0){
-	        int rem = num % 10;
-	        ans = ans * 10 + rem;
-	        num = num / 10;
-	    }
-	    
 	    return ans;
 	}
 }
